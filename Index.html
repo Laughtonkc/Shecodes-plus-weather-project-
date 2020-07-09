@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelsey's Weather 🌤</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/Style.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <!--main body information-->
+    <div class="container shadow-sm mt-4" 
+    id="main-body">
+
+      <form id="search-for-city">
+      <button id="location" 
+      class="col-2 ml-5 pl-4 pr-4 mr-3">
+      📌
+      </button>
+
+        <input
+          id="search-city"
+          type="search"
+          placeholder="Search for a city..."
+          class="col-sm-8 ml-4 mr-2"
+          autocomplete="off"
+        />
+        <button id="submit-button" 
+        class="col-sm-1"
+        type="submit">
+        <img id="search-img" src="Images/search-white.svg" alt="search" />
+        </button>
+      </form>
+
+      <div class="media">
+        <div class="media-body">
+          <h5 class="col-sm mt-0 mb-1" id="main-city">
+            San Francisco
+          </h5>
+          <p id="todays-date">
+           11:55 Monday June 22, 2020 
+          </p>
+          <div class="row">
+            <p class="col-4" id="current-temp">
+              61
+            </p>
+            <a href="#" class="col-.5" id="fahrenheit-main">
+              Fº
+            </a>
+            </p>
+            <a href="#" class="col-.5" id="slash-main">
+              /
+            </a>
+            </p>
+            <a href="#" class="col-.5" id="celsius-main">
+              Cº
+            </a>
+            </p>
+          </div>
+          <div class="row">
+            <p class="col-sm-5" id="current-weather-attributes-description">
+              Sunny Skies
+            </p>
+
+            <p class="col-sm-5" id="current-weather-attributes-humidity">
+              Humidity <span id=humidity>14</span>%
+            </p>
+          </div>
+        </div>
+        <img
+          id="current-weather-img"
+          class="ml-0 image-fluid"
+          src="Images/sunny_day_orange.svg"
+          alt="Sunny skies"
+        />
+      </div>
+  <hr />
+  <!--cards for the weather-->
+      <div class="row pb-3">
+        <div class="col-3">
+          <div class="card">
+            <div class="card-body">
+            <h5 class="card-title" 
+            id="day-of-the-week">
+            Tue
+            </h5>
+            <img class="card-img" src="Images/sun.svg" alt="sunny">
+            <p class="card-text " id="weeks-tempature">
+              67º
+            </p>
+            <p class="card-text text-wrap" id="description-of-temp">
+              sunny skies
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"
+              id="day-of-the-week"
+              >Wed</h5>
+              <img class="card-img" src="Images/rain.svg" alt="rain storm">
+              <p class="card-text "
+              id="weeks-tempature">
+                52º
+              </p>
+              <p class="card-text"
+              id="description-of-temp">
+                rain storm
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="day-of-the-week">
+                Thur
+              </h5>
+              <img class="card-img" src="Images/windy.svg" alt="Very-Windy">
+              <p class="card-text " id="weeks-tempature">
+                59º
+              </p>
+              <p class="card-text" id="description-of-temp">
+                windy
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="day-of-the-week">
+                Fri
+              </h5>
+              <img class="card-img" src="Images/cloud.svg" alt="very-cloudy">
+              <p class="card-text " id="weeks-tempature">
+                64º
+              </p>
+              <p class="card-text" id="description-of-temp">
+                cloudy
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

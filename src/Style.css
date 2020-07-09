@@ -1,0 +1,181 @@
+#main-body {
+  box-shadow: rgb(0, 0, 0, 0.45);
+  margin-top: 30px;
+  width: 100%;
+  max-width: 800px;
+  min-width: 100px;
+}
+
+#search-for-city {
+  padding-top: 25px;
+}
+
+#location {
+  text-align: center;
+  border-radius: 5px;
+  background: #ffd24e;
+  border-color: #ffd24e;
+  border-width: 1px;
+  color: #ffff;
+  vertical-align: middle;
+  width: 9%;
+  height: 32px;
+}
+
+#location:hover {
+  opacity: 60%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#search-city {
+  font-family: "Noto Sans JP", sans-serif;
+  font-style: italic;
+  vertical-align: middle;
+  font-weight: 300;
+  color: ##707070;
+  border-radius: 5px;
+  border-color: #213044;
+  border-width: 1px;
+  width: 50%;
+  min-width: 50px;
+  height: 32px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+#submit-button {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  border-radius: 5px;
+  background: #ffd24e;
+  border-color: #ffd24e;
+  border-width: 1px;
+  color: #ffff;
+  vertical-align: middle;
+  width: 10%;
+  height: 32px;
+}
+
+#submit-button:hover {
+  background: #ffd24e;
+  border-color: #ffd24e;
+  opacity: 60%;
+  border-width: 2px;
+}
+
+#search-img {
+  max-width: 20px;
+  display: block;
+  margin: 0 auto;
+  color: #ffff;
+}
+#main-city {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: 45px;
+  text-align: center;
+  padding-top: 10%;
+  color: #213044;
+}
+
+#todays-date {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 4%;
+  color: #213044;
+}
+#current-temp {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  text-align: center;
+  padding-left: 40%;
+  color: #213044;
+}
+#fahrenheit-main {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  padding-top: 0px;
+  padding-left: 46px;
+  color: #213044;
+}
+#slash-main {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  text-align: center;
+  padding-top: 0px;
+  padding-left: 5px;
+  color: #213044;
+  text-decoration: none;
+}
+#celsius-main {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  text-align: center;
+  padding-top: 0px;
+  padding-left: 5px;
+  color: #213044;
+}
+#current-weather-attributes-description {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  text-align: center;
+  padding-top: 5%;
+  padding-left: 20%;
+  color: #213044;
+}
+#current-weather-attributes-humidity {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  text-align: center;
+  padding-top: 5%;
+  padding-left: 20%;
+  color: #213044;
+}
+#current-weather-img {
+  width: 40%;
+  padding-top: 10%;
+  padding-bottom: 2%;
+}
+#day-of-the-week {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+}
+
+.card-text {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+}
+.card-img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.card {
+  width: 100%;
+  height: 100%;
+  min-width: 110px;
+}
+#weeks-tempature {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 15px;
+  margin-bottom: 10px;
+}
