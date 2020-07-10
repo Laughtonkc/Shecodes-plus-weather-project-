@@ -179,3 +179,19 @@
   padding-top: 15px;
   margin-bottom: 10px;
 }
+#coder {
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 15px;
+  color: #213044;
+  padding-top: 10px;
+  padding-left: 265px;
+}
+
+#github-link {
+  text-decoration: none;
+  color: #ffd24e;
+}
+#github-link:hover {
+  text-decoration: underline;
+}
