@@ -43,18 +43,38 @@ let month = months[now.getMonth()];
 
 p.innerHTML = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}`;
 
+//forcast
+
+function displayForecast(response) {
+let forecastElement = document.querySelector("#forecast");
+let forecast = response.data.list[0]
+forecastElement.innerHTML = 
+`
+<h5 class="card-title" 
+            id="day-of-the-week">
+            Tue
+            </h5>
+            <img class="card-img" src="Images/sun.svg" alt="sunny">
+            <p class="card-text " id="weeks-tempature">
+              $[forecast.main.temp]
+            </p>
+            <p class="card-text text-wrap" id="description-of-temp">
+              sunny skies
+            </p>
+`;
+
 //change city / Api
 
 function searchCity(event) {
   event.preventDefault();
-  //let searchInput = document.querySelector("#search-city");
-
-  //let h5 = document.querySelector("#main-city");
-  //h5.innerHTML = `${searchInput.value}`;
 
   let city = document.querySelector("#search-city").value;
   let apiKey = "e225c6d111cb3447388ed224dda3872f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+  let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+
+  axios.get(forecastApiUrl).then(displayForecast);
 
   axios.get(apiUrl).then(showRealTemp);
 }
@@ -80,7 +100,7 @@ function convertFahrrenheit(event) {
   event.preventDefault();
   let currentTempature = document.querySelector("#current-temp");
   fahrenheitLink.classList.remove("active");
-  
+
   let tempature = currentTempature.innerHTML;
   tempature = Number(tempature);
   currentTempature.innerHTML = Math.round((tempature * 9) / 5 + 32);
