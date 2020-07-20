@@ -198,6 +198,7 @@
   margin-bottom: 10px;
 }
 #coder {
+  text-align: center;
   text-decoration: none;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 15px;
@@ -208,7 +209,7 @@
 
 #github-link {
   text-decoration: none;
-  color: #ffd24e;
+  color: #213044;
 }
 #github-link:hover {
   text-decoration: underline;
