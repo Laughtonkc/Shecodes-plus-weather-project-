@@ -33,7 +33,7 @@
   font-style: italic;
   vertical-align: middle;
   font-weight: 300;
-  color: ##707070;
+  color: #707070;
   border-radius: 5px;
   border-color: #213044;
   border-width: 1px;
@@ -105,6 +105,12 @@
   padding-left: 46px;
   color: #213044;
 }
+
+#fahrenheit-main:hover {
+  text-decoration: none;
+  font-weight: 800;
+}
+
 #slash-main {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 300;
@@ -124,6 +130,18 @@
   padding-left: 5px;
   color: #213044;
 }
+#celsius-main:hover {
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.active {
+  font-weight: 800;
+}
+.inactive {
+  color: #213033;
+}
+
 #current-weather-attributes-description {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 300;

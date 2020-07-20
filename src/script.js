@@ -79,6 +79,8 @@ form.addEventListener("submit", searchCity);
 function convertFahrrenheit(event) {
   event.preventDefault();
   let currentTempature = document.querySelector("#current-temp");
+  fahrenheitLink.classList.remove("active");
+  
   let tempature = currentTempature.innerHTML;
   tempature = Number(tempature);
   currentTempature.innerHTML = Math.round((tempature * 9) / 5 + 32);
