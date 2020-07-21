@@ -73,12 +73,8 @@ function displayForecast(response) {
   }
 }
 
-//change city / Api
-
-function searchCity(event) {
-  event.preventDefault();
-
-  let city = document.querySelector("#search-city").value;
+//Api calls
+function apiCalls(city) {
   let apiKey = "e225c6d111cb3447388ed224dda3872f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
@@ -89,7 +85,16 @@ function searchCity(event) {
   axios.get(forecastApiUrl).then(displayForecast);
 }
 
-//Api
+//change city
+
+function searchCity(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#search-city");
+  apiCalls(cityElement.value);
+}
+
+apiCalls("San Francisco");
+//replacing information
 
 function showRealTemp(response) {
   document.querySelector("#main-city").innerHTML = response.data.name;
