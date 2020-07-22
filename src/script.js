@@ -44,9 +44,30 @@ let month = months[now.getMonth()];
 p.innerHTML = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}`;
 
 //forcast
+function formatForecastWeekday(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let weekDay = days[date.getDay()];
+  return weekDay;
+}
+
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
+  let currentHour = date.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMinute = date.getMinutes();
+  if (currentMinute < 10) {
+    currentMinute = `0${currentMinute}`;
+  }
+
+  return `${currentHour}:${currentMinute}`;
+}
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
   let forecast = null;
 
   for (let index = 0; index < 4; index++) {
@@ -57,9 +78,11 @@ function displayForecast(response) {
         <div class="card-body">
         <h5 class="card-title"
         id="day-of-the-week">
-        Tue
+        ${formatForecastWeekday(forecast.dt * 1000)}
         </h5>
-        <img class="card-img" src="Images/sun.svg" alt="sunny">
+        <img class="card-img" id="forecast-img" src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png">
         <p class="card-text " id="weeks-tempature">
           ${Math.round(forecast.main.temp)}º
         </p>
@@ -97,6 +120,10 @@ apiCalls("San Francisco");
 //replacing information
 
 function showRealTemp(response) {
+  let iconElement = document.querySelector("#forecast-img");
+
+  fahrenheitTemperature = response.data.main.temp;
+
   document.querySelector("#main-city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -104,6 +131,11 @@ function showRealTemp(response) {
   document.querySelector("#current-weather-attributes-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let form = document.querySelector("#search-for-city");
@@ -111,26 +143,23 @@ form.addEventListener("submit", searchCity);
 
 // Change Fº/Cº
 
-function convertFahrrenheit(event) {
+function convertFahrenheit(event) {
   event.preventDefault();
   let currentTempature = document.querySelector("#current-temp");
-  fahrenheitLink.classList.remove("active");
-
-  let tempature = currentTempature.innerHTML;
-  tempature = Number(tempature);
-  currentTempature.innerHTML = Math.round((tempature * 9) / 5 + 32);
+  currentTempature.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertCelsius(event) {
   event.preventDefault();
   let currentTempature = document.querySelector("#current-temp");
-  let tempature = currentTempature.innerHTML;
-  tempature = Number(tempature);
-  currentTempature.innerHTML = Math.round(((tempature - 32) * 5) / 9);
+  celsiusLink.classList.add("active");
+  let tempature = ((fahrenheitTemperature - 32) * 5) / 9;
+  currentTempature.innerHTML = Math.round(tempature);
 }
+let fahrenheitTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-main");
-fahrenheitLink.addEventListener("click", convertFahrrenheit);
+fahrenheitLink.addEventListener("click", convertFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-main");
 celsiusLink.addEventListener("click", convertCelsius);
