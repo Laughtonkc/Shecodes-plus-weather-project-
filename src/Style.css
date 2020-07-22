@@ -96,6 +96,7 @@
   padding-left: 40%;
   color: #213044;
 }
+
 #fahrenheit-main {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 300;
@@ -108,7 +109,7 @@
 
 #fahrenheit-main:hover {
   text-decoration: none;
-  font-weight: ;
+  font-weight: 800;
 }
 
 #slash-main {
@@ -132,7 +133,7 @@
 }
 #celsius-main:hover {
   text-decoration: none;
-  font-weight: ;
+  font-weight: 800;
 }
 
 #current-weather-attributes-description {
@@ -207,8 +208,9 @@
 #github-link:hover {
   text-decoration: underline;
 }
-
-.active {
+#fahrenheit-main.active {
   font-weight: 800;
-  color: red;
+}
+#celsius-main.inactive {
+  font-weight: 800;
 }

@@ -145,6 +145,8 @@ form.addEventListener("submit", searchCity);
 
 function convertFahrenheit(event) {
   event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("inactive");
   let currentTempature = document.querySelector("#current-temp");
   currentTempature.innerHTML = Math.round(fahrenheitTemperature);
 }
@@ -152,7 +154,8 @@ function convertFahrenheit(event) {
 function convertCelsius(event) {
   event.preventDefault();
   let currentTempature = document.querySelector("#current-temp");
-  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("inactive");
   let tempature = ((fahrenheitTemperature - 32) * 5) / 9;
   currentTempature.innerHTML = Math.round(tempature);
 }
