@@ -69,7 +69,6 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-
   for (let index = 0; index < 4; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
@@ -83,9 +82,11 @@ function displayForecast(response) {
         <img class="card-img" id="forecast-img" src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png">
+        <div class="daily-forecast-temp">
         <p class="card-text " id="weeks-tempature">
           ${Math.round(forecast.main.temp)}º
         </p>
+        </div>
         <p class="card-text text-wrap" id="description-of-temp">
           ${forecast.weather[0].description}
         </p>
@@ -114,6 +115,8 @@ function searchCity(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#search-city");
   apiCalls(cityElement.value);
+  let input = document.querySelector("input");
+  input.value = "";
 }
 
 apiCalls("San Francisco");
