@@ -78,7 +78,7 @@ function displayForecast(response) {
         <div class="card-body">
         <h5 class="card-title"
         id="day-of-the-week">
-        ${formatForecastWeekday(forecast.dt * 1000)}
+        ${formatTime(forecast.dt * 1000)}
         </h5>
         <img class="card-img" id="forecast-img" src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
@@ -117,25 +117,52 @@ function searchCity(event) {
 }
 
 apiCalls("San Francisco");
+
+//changing main icon
+function changeImage(icon) {
+  let iconCondition = document.querySelector("#current-weather-img");
+  if (icon === "01d" || icon === "02d") {
+    iconCondition.setAttribute("src", `Images/sunny_day_orange.svg`);
+  } else if (icon === "03d" || icon === "04d") {
+    iconCondition.setAttribute("src", `Images/Cloudy_orange.svg`);
+  } else if (icon === "50d") {
+    iconCondition.setAttribute("src", `Images/Windy_orange.svg`);
+  } else if (icon === "09d" || icon === "09n") {
+    iconCondition.setAttribute("src", `Images/Rain_orange.svg`);
+  } else if (icon === "10d" || icon === "11n") {
+    iconCondition.setAttribute("src", `Images/Rain_orange.svg`);
+  } else if (icon === "13d") {
+    iconCondition.setAttribute("src", `Images/Cold_windy_orange.svg`);
+  } else {
+    iconCondition.setAttribute("src", `Images/sunny_day_orange.svg`);
+  }
+}
+
 //replacing information
 
 function showRealTemp(response) {
-  let iconElement = document.querySelector("#forecast-img");
-
+  //let mainIconElement = document.querySelector("#current-weather-img");
+  //if (response.data.weather.main = response.data.weather.main.rain) {
+  //mainIconElement.innerHTML = "Images/Rain_orange.svg";
+  //} else {
+  // mainIconElement.innerHTLM = "Images/sunny_day_orange.svg";
+  //}
+  //if (response.data.weather.main = response.data.weather.main.Clouds) {
+  // mainIconElement.setAttribute("src", `Images/Cold_windy_orange.svg`);
+  //} else {
+  // mainIconElement.setAttribute("src", `Images/sunny_day_orange.svg);
+  //}
+  changeImage(response.data.weather[0].icon);
   fahrenheitTemperature = response.data.main.temp;
 
   document.querySelector("#main-city").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+  console.log(response.data.weather);
   document.querySelector("#current-weather-attributes-description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 let form = document.querySelector("#search-for-city");
@@ -174,6 +201,7 @@ function searchLocation(position) {
   let longitude = position.coords.longitude;
   let apiKey = "e225c6d111cb3447388ed224dda3872f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+
   axios.get(apiUrl).then(showRealTemp);
 }
 
