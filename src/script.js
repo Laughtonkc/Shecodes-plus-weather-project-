@@ -118,6 +118,25 @@ function searchCity(event) {
 
 apiCalls("San Francisco");
 
+//replacing information
+
+function showRealTemp(response) {
+  fahrenheitTemperature = response.data.main.temp;
+
+  document.querySelector("#main-city").innerHTML = response.data.name;
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  console.log(response.data.weather);
+  document.querySelector("#current-weather-attributes-description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  changeImage(response.data.weather[0].icon);
+}
+
+let form = document.querySelector("#search-for-city");
+form.addEventListener("submit", searchCity);
+
 //changing main icon
 function changeImage(icon) {
   let iconCondition = document.querySelector("#current-weather-img");
@@ -129,7 +148,7 @@ function changeImage(icon) {
     iconCondition.setAttribute("src", `Images/Windy_orange.svg`);
   } else if (icon === "09d" || icon === "09n") {
     iconCondition.setAttribute("src", `Images/Rain_orange.svg`);
-  } else if (icon === "10d" || icon === "11n") {
+  } else if (icon === "10d" || icon === "11d") {
     iconCondition.setAttribute("src", `Images/Rain_orange.svg`);
   } else if (icon === "13d") {
     iconCondition.setAttribute("src", `Images/Cold_windy_orange.svg`);
@@ -137,37 +156,6 @@ function changeImage(icon) {
     iconCondition.setAttribute("src", `Images/sunny_day_orange.svg`);
   }
 }
-
-//replacing information
-
-function showRealTemp(response) {
-  //let mainIconElement = document.querySelector("#current-weather-img");
-  //if (response.data.weather.main = response.data.weather.main.rain) {
-  //mainIconElement.innerHTML = "Images/Rain_orange.svg";
-  //} else {
-  // mainIconElement.innerHTLM = "Images/sunny_day_orange.svg";
-  //}
-  //if (response.data.weather.main = response.data.weather.main.Clouds) {
-  // mainIconElement.setAttribute("src", `Images/Cold_windy_orange.svg`);
-  //} else {
-  // mainIconElement.setAttribute("src", `Images/sunny_day_orange.svg);
-  //}
-  changeImage(response.data.weather[0].icon);
-  fahrenheitTemperature = response.data.main.temp;
-
-  document.querySelector("#main-city").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  console.log(response.data.weather);
-  document.querySelector("#current-weather-attributes-description").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-}
-
-let form = document.querySelector("#search-for-city");
-form.addEventListener("submit", searchCity);
-
 // Change Fº/Cº
 
 function convertFahrenheit(event) {
