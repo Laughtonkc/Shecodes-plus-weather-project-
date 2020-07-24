@@ -3,7 +3,6 @@
   margin-top: 30px;
   width: 100%;
   max-width: 800px;
-  min-width: 100px;
 }
 @media (min-width: 992px) {
   #main-body {
@@ -49,6 +48,11 @@
   height: 32px;
   padding-left: 10px;
   padding-right: 20px;
+}
+@media (min-width: 768px) {
+  #search-city {
+    color: #213044;
+  }
 }
 
 #submit-button {
@@ -180,6 +184,11 @@
   font-size: 18px;
   text-align: center;
   display: block;
+}
+@media (min-width: 768px) {
+  .card-text {
+    color: #213044;
+  }
 }
 .card-img {
   width: 70%;
