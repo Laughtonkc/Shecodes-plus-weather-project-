@@ -85,9 +85,7 @@ function displayForecast(response) {
         <p class="card-text " id="weeks-tempature">
         <span class="forecast-temperature">
           ${Math.round(forecast.main.temp)}</span>º
-          
         </p>
-      
         <p class="card-text text-wrap" id="description-of-temp">
           ${forecast.weather[0].description}
         </p>
@@ -160,6 +158,7 @@ function changeImage(icon) {
     iconCondition.setAttribute("src", `Images/sunny_day_orange.svg`);
   }
 }
+
 // Change Fº/Cº
 
 function convertFahrenheit(event) {
@@ -168,6 +167,12 @@ function convertFahrenheit(event) {
   celsiusLink.classList.remove("inactive");
   let currentTempature = document.querySelector("#current-temp");
   currentTempature.innerHTML = Math.round(fahrenheitTemperature);
+  forecastItems = document.querySelectorAll(".forecast-temperature");
+
+  forecastItems.forEach(function (item) {
+    currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
 
   celsiusLink.addEventListener("click", convertCelsius);
   fahrenheitLink.removeEventListener("click", convertFahrenheit);
@@ -184,9 +189,7 @@ function convertCelsius(event) {
   let forecastItems = document.querySelectorAll(".forecast-temperature");
 
   forecastItems.forEach(function (item) {
-    // grabbing the current value to convert
     let currentTemp = item.innerHTML;
-    // convert to Celsius
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
   celsiusLink.removeEventListener("click", convertCelsius);

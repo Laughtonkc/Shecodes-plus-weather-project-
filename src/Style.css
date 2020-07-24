@@ -23,7 +23,10 @@
 }
 
 #location:hover {
-  opacity: 60%;
+  background: #ffd24e;
+  border-color: #ffd24e;
+  opacity: 90%;
+  border-width: 2px;
   vertical-align: middle;
   text-align: center;
 }
@@ -60,7 +63,7 @@
 #submit-button:hover {
   background: #ffd24e;
   border-color: #ffd24e;
-  opacity: 60%;
+  opacity: 90%;
   border-width: 2px;
 }
 
