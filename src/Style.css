@@ -167,10 +167,11 @@
 }
 #current-weather-img {
   width: 40%;
-  padding-top: 8%;
+  padding-top: 15%;
   padding-bottom: 0.05%;
   display: flex;
 }
+
 #day-of-the-week {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
@@ -208,6 +209,7 @@
   padding-top: 10px;
   margin-bottom: 8px;
 }
+
 #coder {
   text-align: center;
   text-decoration: none;
