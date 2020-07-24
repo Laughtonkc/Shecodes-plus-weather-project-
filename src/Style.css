@@ -170,19 +170,19 @@
 #day-of-the-week {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
 }
 
 .card-text {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   display: block;
 }
 .card-img {
-  width: 60%;
+  width: 70%;
   display: block;
   margin: 0 auto;
 }
