@@ -43,7 +43,7 @@
   border-radius: 5px;
   border-color: #213044;
   border-width: 1px;
-  width: auto;
+  width: 50%;
   min-width: 50px;
   height: 32px;
   padding-left: 10px;
@@ -51,7 +51,7 @@
 }
 @media (min-width: 768px) {
   #search-city {
-    width: auto;
+    width: 50%;
   }
 }
 
@@ -187,7 +187,7 @@
 }
 @media (min-width: 768px) {
   .card-text {
-    color: #213044;
+    font-size: auto;
   }
 }
 .card-img {
