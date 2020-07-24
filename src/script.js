@@ -82,11 +82,12 @@ function displayForecast(response) {
         <img class="card-img" id="forecast-img" src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png">
-        <div class="daily-forecast-temp">
         <p class="card-text " id="weeks-tempature">
-          ${Math.round(forecast.main.temp)}º
+        <span class="forecast-temperature">
+          ${Math.round(forecast.main.temp)}</span>º
+          
         </p>
-        </div>
+      
         <p class="card-text text-wrap" id="description-of-temp">
           ${forecast.weather[0].description}
         </p>
@@ -167,6 +168,9 @@ function convertFahrenheit(event) {
   celsiusLink.classList.remove("inactive");
   let currentTempature = document.querySelector("#current-temp");
   currentTempature.innerHTML = Math.round(fahrenheitTemperature);
+
+  celsiusLink.addEventListener("click", convertCelsius);
+  fahrenheitLink.removeEventListener("click", convertFahrenheit);
 }
 
 function convertCelsius(event) {
@@ -176,12 +180,23 @@ function convertCelsius(event) {
   celsiusLink.classList.add("inactive");
   let tempature = ((fahrenheitTemperature - 32) * 5) / 9;
   currentTempature.innerHTML = Math.round(tempature);
+
+  let forecastItems = document.querySelectorAll(".forecast-temperature");
+
+  forecastItems.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Celsius
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  celsiusLink.removeEventListener("click", convertCelsius);
+  fahrenheitLink.addEventListener("click", convertFahrenheit);
 }
+
 let fahrenheitTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-main");
 fahrenheitLink.addEventListener("click", convertFahrenheit);
-
 let celsiusLink = document.querySelector("#celsius-main");
 celsiusLink.addEventListener("click", convertCelsius);
 
